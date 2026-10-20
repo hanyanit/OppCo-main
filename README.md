@@ -97,7 +97,7 @@ The backend handles the application's server-side functionality and communicatio
                │
                ▼
 ┌──────────────────────────────┐
-│          Database            │
+│          Supabase            │
 └──────────────────────────────┘
 ```
 
@@ -124,47 +124,9 @@ The platform aims to:
 - Connect students with vacation work
 - Help students gain practical workplace experience
 - Reduce the difficulty of finding relevant opportunities
-- Support students in their academic and career journeys
 
 ---
 
-## 🔮 Future Improvements
-
-Potential future improvements include:
-
-- Personalised opportunity recommendations
-- Advanced bursary eligibility matching
-- Application tracking
-- Student notifications
-- Saved opportunities
-- More advanced search and filtering
-- Employer and organisation accounts
-- Student profiles
-- Additional career opportunities
-- Mobile application support
-
----
-
-## 🤝 Contributing
-
-Contributions and suggestions are welcome.
-
-To contribute:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Commit your changes
-5. Push your branch
-6. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is maintained by the OppCo development team.
-
----
 
 ## 🔗 Links
 
