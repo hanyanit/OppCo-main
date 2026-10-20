@@ -1,0 +1,80 @@
+#media-kit {
+  width: 90%;
+  margin: 5% auto;
+  text-align: center;
+}
+
+#media-kit .heading {
+  font-size: 2.25rem;
+  margin-bottom: 10px;
+}
+
+.subtext {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+#media-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.media-item {
+  position: relative;
+  width: 260px;
+  height: 370px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.media-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 1rem;
+}
+
+.media-item:hover .media-overlay {
+  opacity: 1;
+}
+
+.media-overlay h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.media-overlay a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  background: var(--blue);
+  padding: 8px 16px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+}
+
+.media-overlay a:hover {
+  background: #003366;
+}

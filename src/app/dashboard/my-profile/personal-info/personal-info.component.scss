@@ -1,0 +1,97 @@
+.form-grid {
+  font-family: 'Inter', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 40px;
+  margin-bottom: 50px !important;
+}
+
+.form-section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 25px 0;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.form-row label {
+  display: block;
+  font-weight: 500 !important;
+  margin-bottom: 8px;
+}
+
+.form-row input,
+.form-row select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #111827;
+  background-color: white;
+  //background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' fill='none' stroke='%236B7280' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8l4 4 4-4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  border-color: #2563eb;
+}
+
+/* Prevent arrow overlap with text */
+.form-row select {
+  padding-right: 2.5rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 18px;
+  }
+
+  .form-row input,
+  .form-row select {
+    font-size: 14px;
+    padding: 0.5rem 0.6rem;
+  }
+}
+
+/* Add this after your existing .form-row input, select styles */
+.form-row input[type="date"] {
+  height: 40px; /* Match others visually */
+}
+
+/* Optional: Override mobile safari zooming on date input */
+@media (max-width: 480px) {
+  .form-row input[type="date"] {
+    height: 40px;
+  }
+}

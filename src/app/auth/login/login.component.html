@@ -1,0 +1,30 @@
+<main>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h2 id="heading">Welcome Back</h2>
+
+        <div id="form-group-1">
+            <label for="email">Email Address</label>
+            <input formControlName="email" type="email" placeholder="drponanimasinge@gmail.com" required />
+        </div>
+
+        <div id="form-group-2">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" formControlName="password" required />
+            <div id="forgot-password">
+            <a routerLink="/forgot-password">Forgot Password?</a>
+            </div>
+        </div>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        
+        <div id="form-submit-group">
+            <button type="submit" id="submit-btn">Login</button>
+        </div>
+
+        <p id="form-footer">
+            Don’t have an account?
+            <a routerLink="/signup">Sign up here</a>
+        </p>
+    </form>
+</main>
+<app-footer></app-footer>

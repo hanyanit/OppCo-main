@@ -1,0 +1,37 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <header class="header">
+    <div class="header-left">
+      <h1 class="header-title">Financial Information</h1>
+      <p>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        The more financial information you upload, the more accurately our matching algorithm can match you with opportunities you're eligible for.
+      </p>
+    </div>
+    <div class="header-icons" type="submit">
+      <a (click)="onSubmit()">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <span>Save</span>
+      </a>
+    </div>
+  </header>
+  <div class="form-grid">
+    <div class="form-section">
+      <h3 class="section-title">Household Information</h3>
+      <div class="form-row">
+        <label>Combined Household Income Per Annum (ZAR)</label>
+        <input type="number" formControlName="max_household_income" placeholder="475000" />
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3 class="section-title">Parental Information</h3>
+      <div class="form-row">
+        <label>Are you an orphan?</label>
+        <select formControlName="orphan_status">
+          <option value="" disabled selected>Select an Option</option>
+          <option *ngFor="let opt of yesNo" [value]="opt">{{ opt }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</form>

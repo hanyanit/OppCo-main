@@ -1,0 +1,40 @@
+<div class="container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="user-card">
+      <img class="avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png" alt="User photo" />
+      <div class="user-details">
+        <p class="name">{{ userFullName() }}</p>
+        <p class="role">Free Account</p>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a routerLink="my-profile" routerLinkActive="active">
+        <i class="fa-regular fa-circle-user"></i>
+        <span>My Profile</span>
+      </a>
+      <a routerLink="feed" routerLinkActive="active">
+        <i class="fa-solid fa-house"></i>
+        <span>Feed</span>
+      </a>
+      <a routerLink="feedback" routerLinkActive="active">
+        <i class="fa-regular fa-comment-dots"></i>
+        <span>Feedback</span>
+      </a>
+      <a routerLink="bookmarks" routerLinkActive="active">
+        <i class="fa-regular fa-bookmark"></i>
+        <span>Bookmarks</span>
+      </a>
+      <a (click)="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket" style="color: rgb(192, 1, 1);"></i>
+        <span style="color: rgb(192, 1, 1);">Logout</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content: Router outlet to load child routes -->
+  <main class="main-content" #mainContent>
+    <router-outlet></router-outlet>
+  </main>
+</div>

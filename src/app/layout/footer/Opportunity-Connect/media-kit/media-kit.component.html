@@ -1,0 +1,20 @@
+<main>
+  <section id="media-kit">
+    <h2 class="heading">
+      <i class="fa-solid fa-file-image"></i> Media Kit
+    </h2>
+    <p class="subtext">Access high-quality promotional posters and assets to share or print.</p>
+
+    <div id="media-grid">
+      <div class="media-item" *ngFor="let item of mediaAssets">
+        <img [src]="item.thumbnail" [alt]="item.title">
+        <div class="media-overlay">
+          <h3>{{ item.title }}</h3>
+          <a [href]="item.downloadUrl" download>
+            <i class="fa-solid fa-download"></i> Download
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

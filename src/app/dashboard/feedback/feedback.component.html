@@ -1,0 +1,21 @@
+<main>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2 class="heading">We Value Your Feedback</h2>
+
+    <p id="feedback-subheading">Your thoughts go directly to the founders of this platform. You're welcome to report any other issues to help us improve our OppCo web app for you.</p>
+
+    <div id="form-group-1">
+      <label for="subject">Subject</label>
+      <input formControlName="subject" type="text" placeholder="Short summary of your feedback" required />
+    </div>
+
+    <div id="form-group-2">
+      <label for="message">Message</label>
+      <textarea formControlName="message" placeholder="Share your thoughts or suggestions..." rows="6" required></textarea>
+    </div>
+
+    <div id="form-submit-group">
+      <button type="submit" id="submit-btn">Send Feedback</button>
+    </div>
+  </form>
+</main>

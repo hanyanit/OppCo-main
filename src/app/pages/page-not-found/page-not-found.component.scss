@@ -1,0 +1,25 @@
+#not-found-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7.5%;
+  height: 100vh; 
+  box-sizing: border-box;
+}
+
+#not-found-content {
+  text-align: center;
+}
+
+#not-found-title {
+  font-size: 7.5em;
+  font-weight: 200;
+  color: var(--blue);
+  margin: 0 0 0.5em 0;
+}
+
+#not-found-message {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}

@@ -1,0 +1,168 @@
+<div *ngIf="loading" class="loading-container">
+  <div class="spinner"></div>
+  <p>Loading Profile...</p>
+</div>
+<div *ngIf="!loading">
+  <form (ngSubmit)="onSubmit()" [formGroup]="profileForm" class="profile-form">
+    <header class="header">
+      <div class="header-left">
+        <h1 class="header-title">Profile</h1>
+        <p>
+          <i class="fa-solid fa-circle-exclamation"></i>
+            The more information you upload, the more we can personalise and enhance your experience on the platform.
+        </p>
+      </div>
+      <div class="header-icons" type="submit">
+        <a (click)="onSubmit()">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <span>Save</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <!-- Left column -->
+      <div class="left-column">
+        <div class="photo-section">
+          <div class="photo-banner">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png"
+              alt="Profile"
+              class="profile-photo"
+            />
+            <!--
+            <div class="edit-icon">
+              <i class="fa-solid fa-pen"></i>
+            </div>
+            -->
+          </div>
+          <div class="photo-info">
+            <h3 class="photo-title">{{ fullNameControl.value || 'User Names' }}</h3>
+            <p class="photo-subtitle">{{ bioControl.value || 'Bio' }}</p>
+            <!--
+            <div class="photo-buttons">
+              <button type="button" class="btn btn-outline">Upload New</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            -->
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3 class="section-title">Contact Details</h3>
+
+          <div class="form-group">
+            <label class="form-label" for="fullName">Full Name</label>
+            <div class="input-with-icon">
+              <input
+                id="fullName"
+                type="text"
+                class="form-input"
+                placeholder="Ponani Arthur Masinge"
+                formControlName="fullName"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <div class="input-with-icon">
+              <input
+                id="email"
+                type="email"
+                class="form-input"
+                placeholder="drponanimasinge@gmail.com"
+                formControlName="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">Mobile Number</label>
+            <div class="phone-input">
+              <input
+                id="phone"
+                type="text"
+                class="phone-number"
+                placeholder="0712345678"
+                formControlName="phone"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="right-column">
+        <div class="bio-section">
+          <h3 class="section-title">Bio</h3>
+          <textarea
+            formControlName="bio"
+            class="bio-textarea"
+            placeholder="Write a few lines about yourself..."
+          ></textarea>
+        </div>
+
+        <!--
+        <div class="interests-section">
+          <h3 class="section-title">Hobbies</h3>
+          <div class="tags-container">
+            <span class="tag">Coding <span class="tag-remove">×</span></span>
+            <span class="tag">Golf <span class="tag-remove">×</span></span>
+            <span class="tag">Building Startups <span class="tag-remove">×</span></span>
+            <span class="tag">Jogging <span class="tag-remove">×</span></span>
+          </div>
+          <button type="button" class="add-more-btn">+ Add more</button>
+        </div>
+        -->
+
+        <div class="social-section">
+          <h3 class="section-title">Social Media Accounts</h3>
+
+          <div class="social-item">
+            <i class="fa-brands fa-linkedin-in"></i>
+            <input
+              type="text"
+              formControlName="linkedin"
+              placeholder="Dr Ponani Arthur Masinge"
+              class="social-link"
+            />
+          </div>
+
+          <div class="social-item">
+            <i class="fa-brands fa-instagram"></i>
+            <input
+              type="text"
+              formControlName="instagram"
+              placeholder="@drapmasinge"
+              class="social-link"
+            />
+          </div>
+
+          <div class="social-item">
+            <i class="fa-brands fa-facebook"></i>
+            <input
+              type="text"
+              formControlName="facebook"
+              placeholder="@DrPonaniMasinge"
+              class="social-link"
+            />
+          </div>
+
+          <div class="social-item">
+            <i class="fa-brands fa-x-twitter"></i>
+            <input
+              type="text"
+              formControlName="twitter"
+              placeholder="@DrAPMasinge"
+              class="social-link"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <app-personal-info></app-personal-info>
+  <app-academic-info></app-academic-info>
+  <app-financial-info></app-financial-info>
+</div>

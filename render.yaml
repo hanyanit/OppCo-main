@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: oppco-backend
+    env: python
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn your_project_name.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.apps.core.settings
+      - key: SECRET_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50cnZ1dWJsemdvbXZ3b21vbWV5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MTEwODc4NiwiZXhwIjoyMDY2Njg0Nzg2fQ.EC3Aol29eP0d18Rwlb5-V4w2BHjb728juczdIJc74v0
+      - key: DEBUG
+        value: "false"
+      - key: ALLOWED_HOSTS
+        value: "oppco-backend.onrender.com"
+      - key: SUPABASE_URL
+        value: https://ntrvuublzgomvwomomey.supabase.co
+      - key: SUPABASE_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50cnZ1dWJsemdvbXZ3b21vbWV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTExMDg3ODYsImV4cCI6MjA2NjY4NDc4Nn0.xJ3Fk_9ZIa1M-h5VSUvA4BUp8vEuSaFxsGwuwUkiO3o

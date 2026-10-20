@@ -1,0 +1,48 @@
+<div class="bursary-card">
+  <div class="category">{{ opportunity.category }}</div>
+  <h2 class="title">{{ opportunity.title }}</h2>
+  <div class="provider-location">
+    <img [src]="opportunity.logo_url" [alt]="opportunity.provider" class="logo" />
+    <div>
+      <div class="provider">{{ opportunity.provider }}</div>
+      <div class="location">{{ opportunity.location }}</div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag" *ngFor="let benefit of opportunity.benefits">{{ benefit }}</span>
+  </div>
+  <div class="dates">
+    <p *ngIf="opportunity.start_date"><strong>Start Date:</strong> {{ opportunity.start_date }}</p>
+    <p *ngIf="opportunity.end_date"><strong>End Date:</strong> {{ opportunity.end_date }}</p>
+    <p *ngIf="opportunity.duration_weeks"><strong>Duration:</strong> {{ opportunity.duration_weeks }} week/s</p>
+  </div>
+
+  <div class="closing-date"><strong>Closing Date:</strong> {{ opportunity.closing_date | date }}</div>
+
+  <a class="read-more-link" [routerLink]="['/opportunity-details', opportunity.id]" [state]="opportunity">
+    Read More
+  </a>
+
+  <div class="card-actions">
+    <a
+      [href]="opportunity.application_link || '#'"
+      class="apply-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      [class.disabled]="!opportunity.application_link"
+      (click)="opportunity.application_link ? null : $event.preventDefault()"
+    >
+      {{ opportunity.application_link ? 'Apply' : 'Application link not available' }}
+      <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" y1="30" x2="28" y2="4" />
+        <polyline points="14 4, 28 4, 28 18" />
+      </svg>
+    </a>
+    <i
+      class="fa-bookmark"
+      [ngClass]="{ 'fa-solid': isBookmarked, 'fa-regular': !isBookmarked }"
+      (click)="toggleBookmark()"
+      style="cursor: pointer;"
+    ></i>
+  </div>
+</div>

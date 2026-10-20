@@ -1,0 +1,118 @@
+.bursary-card {
+  background: white;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 0;
+}
+
+.category {
+  background: #f4f4f4;
+  color: #555;
+  padding: 5px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 6px 0;
+}
+
+.provider-location {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.provider {
+  font-weight: 500;
+}
+
+.location {
+  font-size: 13px;
+  color: #777;
+}
+
+.description {
+  font-size: 15px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.tag {
+  font-size: 0.8em;
+  background-color: #e7efff;
+  color: #2156f3;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.info-column {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 16px 0;
+  margin: 16px 0;
+}
+
+.info-column p {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.info-column i {
+  font-size: 1.1em;
+  margin-right: 8px;
+}
+
+.info-column strong {
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.closing-date {
+  font-weight: 600;
+  color: #b33939;
+  margin: 12px 0;
+}
+
+/* Apply button */
+.apply-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  //padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Arrow icon */
+.arrow-icon {
+  width: 20px;
+  height: 15px;
+  stroke: black;
+}
+
+/* Bookmark icon */
+.card-actions i {
+  font-size: 22.5px;
+  cursor: pointer;
+}

@@ -1,0 +1,103 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <header class="header">
+    <div class="header-left">
+      <h1 class="header-title">Personal Information</h1>
+      <p>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        The more personal information you upload, the more accurately our
+        matching algorithm can match you with opportunities you're eligible for.
+      </p>
+    </div>
+    <div class="header-icons" type="submit">
+      <a (click)="onSubmit()">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <span>Save</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="form-grid">
+    <!-- Left Column -->
+    <div class="form-section">
+      <h3 class="section-title">Personal Details</h3>
+
+      <div class="form-row">
+        <label for="dob">Date of Birth</label>
+        <input id="dob" type="date" formControlName="dob" />
+      </div>
+
+      <div class="form-row">
+        <label for="age">Age</label>
+        <input id="age" type="number" formControlName="age" placeholder="Age is autocalculated" readonly />
+      </div>
+
+      <div class="form-row">
+        <label for="gender">Gender</label>
+        <select id="gender" formControlName="gender">
+          <option value="" disabled selected>Select Gender</option>
+          <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="nationality">Nationality</label>
+        <select id="nationality" formControlName="nationality">
+          <option value="" disabled selected>Select Nationality</option>
+          <option *ngFor="let n of nationalities" [value]="n">{{ n }}</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="race">Race</label>
+        <select id="race" formControlName="race">
+          <option value="" disabled selected>Select Race</option>
+          <option *ngFor="let r of races" [value]="r">{{ r }}</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="disability">Do you have any disabilities?</label>
+        <select id="disability" formControlName="disability">
+          <option value="" disabled selected>Select an Option</option>
+          <option *ngFor="let d of disabilityOptions" [value]="d">{{ d }}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="form-section">
+      <h3 class="section-title">Physical Address</h3>
+
+      <div class="form-row">
+        <label for="country">Country</label>
+        <select id="country" formControlName="country">
+          <option value="" disabled selected>Select Country</option>
+          <option *ngFor="let n of countries" [value]="n">{{ n }}</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="province">Province</label>
+        <select id="province" formControlName="province">
+          <option value="" disabled selected>Select Province</option>
+          <option *ngFor="let p of provinces" [value]="p">{{ p }}</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="district">District</label>
+        <input id="district" type="text" formControlName="district" placeholder="Mopani District" />
+      </div>
+
+      <div class="form-row">
+        <label for="city">City/Town/Township</label>
+        <input id="city" type="text" formControlName="city" placeholder="Nkowankowa" />
+      </div>
+
+      <div class="form-row">
+        <label for="municipality">Municipality</label>
+        <input id="municipality" type="text" formControlName="municipality" placeholder="Greater Tzaneen Municipality" />
+      </div>
+    </div>
+  </div>
+</form>

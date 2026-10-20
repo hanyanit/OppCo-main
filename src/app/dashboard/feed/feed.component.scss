@@ -1,0 +1,53 @@
+.loading-container,
+.no-opportunities {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%; /* changed from 100vh to 100% to allow parent scroll */
+  width: 100%;
+  min-height: 60vh;
+}
+
+/* Loading text */
+.loading-container p {
+  color: var(--blue);
+  font-size: 2em;
+  text-align: center;
+}
+
+/* Spinner stays the same */
+.spinner {
+  width: 75px;
+  height: 75px;
+  border: 4px solid #ccc;
+  border-top: 4px solid var(--blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+/* Message when no opportunities found */
+.no-opportunities p {
+  color: var(--blue);
+  font-size: 2em;
+  text-align: center;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Cards container */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  /* Allow scrolling inside the main-content area */
+  overflow-y: auto;
+  min-height: 0; /* critical for flex child scroll inside main-content */
+}

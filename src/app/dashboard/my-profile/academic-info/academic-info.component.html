@@ -1,0 +1,219 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <header class="header">
+    <div class="header-left">
+      <h1 class="header-title">Academic Information</h1>
+      <p>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        The more academic information you upload, the more accurately our matching algorithm can match you with opportunities you're eligible for.
+      </p>
+    </div>
+    <div class="header-icons">
+      <a (click)="onSubmit()">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <span>Save</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="form-grid">
+    <!-- Left Column -->
+    <div class="form-section">
+      <h3 class="section-title">Study Details</h3>
+
+      <!-- Education Level -->
+      <div class="form-row">
+        <label>Education Level</label>
+        <select formControlName="education_level">
+          <option value="" disabled selected>Select Education Level</option>
+          <option *ngFor="let level of educationLevels" [value]="level">{{ level }}</option>
+        </select>
+      </div>
+
+      <!-- Grade -->
+      <div class="form-row" *ngIf="form.value.education_level === 'Primary School Learner'">
+        <label>Grade</label>
+        <select formControlName="grade">
+          <option value="" disabled selected>Select Grade</option>
+          <option *ngFor="let g of gradesPrimary" [value]="g">{{ g }}</option>
+        </select>
+      </div>
+      <div class="form-row" *ngIf="form.value.education_level === 'High School Learner'">
+        <label>Grade</label>
+        <select formControlName="grade">
+          <option value="" disabled selected>Select Grade</option>
+          <option *ngFor="let g of gradesHigh" [value]="g">{{ g }}</option>
+        </select>
+      </div>
+
+      <!-- Desired Study Fields -->
+      <div *ngIf="form.value.education_level === 'High School Learner' && form.value.grade === 'Grade 12'">
+        <div class="form-row">
+          <label>Qualification (No Abbreviations) (1st Choice Desire)</label>
+          <input formControlName="qualification" placeholder="Bachelor of Medicine & Bachelor of Surgery"/>
+        </div>
+
+        <div class="form-row">
+          <label>Institution Type (1st Choice Desire)</label>
+          <select formControlName="institution_type">
+            <option value="" disabled selected>Select Institution Type</option>
+            <option *ngFor="let t of institutionTypes" [value]="t">{{ t }}</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>Tertiary Institution (1st Choice Desire)</label>
+          <select formControlName="institution_name">
+            <option value="" disabled selected>Select Institution</option>
+            <option *ngFor="let u of institutions" [value]="u">{{ u }}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Tertiary Student Section -->
+      <div *ngIf="form.value.education_level === 'Tertiary Student'">
+        <div class="form-row">
+          <label>Type</label>
+          <select formControlName="tertiary_type">
+            <option value="" disabled selected>Select Type</option>
+            <option *ngFor="let t of tertiaryTypes" [value]="t">{{ t }}</option>
+          </select>
+        </div>
+
+        <div class="form-row" *ngIf="form.value.tertiary_type === 'Undergraduate'">
+          <label>Undergraduate Level</label>
+          <select formControlName="undergraduate_level">
+            <option value="" disabled selected>Select Undergraduate Level</option>
+            <option *ngFor="let level of undergraduateLevels" [value]="level">{{ level }}</option>
+          </select>
+        </div>
+
+        <div class="form-row" *ngIf="form.value.tertiary_type === 'Postgraduate'">
+          <label>Postgraduate Level</label>
+          <select formControlName="postgraduate_level">
+            <option value="" disabled selected>Select Postgraduate Level</option>
+            <option *ngFor="let level of postgraduateLevels" [value]="level">{{ level }}</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>Year of Study</label>
+          <select formControlName="study_year">
+            <option value="" disabled selected>Select Year</option>
+            <option *ngFor="let year of studyYears" [value]="year">{{ year }}</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>Qualification (No Abbreviations)</label>
+          <input formControlName="qualification" placeholder="Bachelor of Medicine & Bachelor of Surgery"/>
+        </div>
+
+        <div class="form-row">
+          <label>Institution Type</label>
+          <select formControlName="institution_type">
+            <option value="" disabled selected>Select Institution Type</option>
+            <option *ngFor="let t of institutionTypes" [value]="t">{{ t }}</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>Tertiary Institution</label>
+          <select formControlName="institution_name">
+            <option value="" disabled selected>Select Institution</option>
+            <option *ngFor="let u of institutions" [value]="u">{{ u }}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Graduate Section -->
+      <div *ngIf="form.value.education_level === 'Graduate'">
+        <div class="form-row">
+          <label>Type</label>
+          <select formControlName="tertiary_type">
+            <option value="" disabled selected>Select Type</option>
+            <option *ngFor="let t of tertiaryTypes" [value]="t">{{ t }}</option>
+          </select>
+        </div>
+
+        <div class="form-row" *ngIf="form.value.tertiary_type === 'Undergraduate'">
+          <label>Undergraduate Level</label>
+          <select formControlName="undergraduate_level">
+            <option value="" disabled selected>Select Undergraduate Level</option>
+            <option *ngFor="let level of undergraduateLevels" [value]="level">{{ level }}</option>
+          </select>
+        </div>
+
+        <div class="form-row" *ngIf="form.value.tertiary_type === 'Postgraduate'">
+          <label>Postgraduate Level</label>
+          <select formControlName="postgraduate_level">
+            <option value="" disabled selected>Select Postgraduate Level</option>
+            <option *ngFor="let level of postgraduateLevels" [value]="level">{{ level }}</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>Qualification (No Abbreviations)</label>
+          <input formControlName="qualification" placeholder="Bachelor of Medicine & Bachelor of Surgery"/>
+        </div>
+
+        <div class="form-row">
+          <label>Institution Type</label>
+          <select formControlName="institution_type">
+            <option value="" disabled selected>Select Institution Type</option>
+            <option *ngFor="let t of institutionTypes" [value]="t">{{ t }}</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>Tertiary Institution</label>
+          <select formControlName="institution_name">
+            <option value="" disabled selected>Select Institution</option>
+            <option *ngFor="let u of institutions" [value]="u">{{ u }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="form-section">
+      <h3 class="section-title">Latest Academic Results</h3>
+
+      <div class="form-row" *ngIf="form.value.education_level !== 'Tertiary Student'">
+        <label>Select Term</label>
+        <select formControlName="term_or_semester">
+          <option value="" disabled selected>Select Term</option>
+          <option *ngFor="let t of schoolTerms" [value]="t">{{ t }}</option>
+        </select>
+      </div>
+
+      <div class="form-row" *ngIf="form.value.education_level === 'Tertiary Student'">
+        <label>Select Semester</label>
+        <select formControlName="term_or_semester">
+          <option value="" disabled selected>Select Semester</option>
+          <option *ngFor="let s of semesters" [value]="s">{{ s }}</option>
+        </select>
+      </div>
+
+      <label *ngIf="form.value.education_level">
+        {{ form.value.education_level === 'Tertiary Student' ? 'Modules & Marks' : 'Subjects & Marks' }}
+      </label>
+
+      <div formArrayName="subjects">
+        <div *ngFor="let subject of subjects.controls; let i = index" [formGroupName]="i" class="form-row subject-row">
+          <input placeholder="Subject/Module Name" formControlName="name" />
+          <input type="number" placeholder="Mark (%)" formControlName="mark" />
+          <button type="button" class="remove-button" (click)="removeSubject(i)">Remove</button>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>Average</label>
+        <input [value]="average + '%'" readonly />
+      </div>
+
+      <button type="button" class="add-button" (click)="addSubject()">
+        {{ form.value.education_level === 'Tertiary Student' ? 'Add Module' : 'Add Subject' }}
+      </button>
+    </div>
+  </div>
+</form>

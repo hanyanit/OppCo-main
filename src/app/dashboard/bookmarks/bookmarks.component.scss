@@ -1,0 +1,53 @@
+.loading-container,
+.no-opportunities {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%; /* changed from min-height: 100vh */
+  min-height: 60vh;
+  width: 100%;
+}
+
+/* Loading text */
+.loading-container p {
+  color: var(--blue);
+  font-size: 2em;
+  text-align: center;
+}
+
+/* Spinner */
+.spinner {
+  width: 75px;
+  height: 75px;
+  border: 4px solid #ccc;
+  border-top: 4px solid var(--blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+/* Message when no opportunities found */
+.no-opportunities p {
+  color: var(--blue);
+  font-size: 2em;
+  text-align: center;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Cards container */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  /* allow scrolling inside parent */
+  overflow-y: auto;
+  min-height: 0; /* critical for flex child scrolling */
+}

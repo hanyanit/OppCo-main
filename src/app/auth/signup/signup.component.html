@@ -1,0 +1,60 @@
+<main>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2 id="heading">Create An Account</h2>
+
+    <div id="form-group-1">
+      <label for="email">Email Address</label>
+      <input formControlName="email" type="email" placeholder="drponanimasinge@gmail.com" required />
+    </div>
+
+    <div id="form-group-2">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Create your password"
+        formControlName="password"
+        required
+      />
+      <div
+        class="error-message"
+        *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
+      >
+        Password must be at least 8 characters and include a letter, a number, and a special character (!&#64;#$%^&*).
+      </div>
+    </div>
+
+    <!-- Terms & Conditions checkbox -->
+    <div id="form-group-3">
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="acceptTerms" />
+        <span class="checkbox-text">
+          I agree to the
+          <a routerLink="/terms-and-conditions" target="_blank">Terms & Conditions</a>,
+          <a routerLink="/privacy-policy" target="_blank">Privacy Policy</a>, and
+          <a routerLink="/disclaimer" target="_blank">Disclaimer</a>.
+        </span>
+      </label>
+
+      <!-- Error if unchecked -->
+      <div
+        class="terms-error"
+        *ngIf="form.get('acceptTerms')?.touched && form.get('acceptTerms')?.invalid"
+      >
+      </div>
+    </div>
+
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <div id="form-submit-group">
+      <button type="submit" id="submit-btn">Sign Up</button>
+    </div>
+
+    <p id="form-footer">
+      Already have an account?
+      <a routerLink="/login">Log in here</a>
+    </p>
+  </form>
+</main>
+<app-footer></app-footer>

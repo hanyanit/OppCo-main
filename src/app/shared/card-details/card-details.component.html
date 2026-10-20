@@ -1,0 +1,66 @@
+<div *ngIf="loading">Loading opportunity details...</div>
+<div *ngIf="error" class="error-message">{{ error }}</div>
+
+<div *ngIf="!loading && opportunity" class="bursary-card">
+  <div class="category">{{ opportunity.category }}</div>
+  <h2 class="title">{{ opportunity.title }}</h2>
+
+  <div class="provider-location">
+    <img [src]="opportunity.logo_url" [alt]="opportunity.provider" class="logo" />
+    <div>
+      <div class="provider">{{ opportunity.provider }}</div>
+      <div class="location">{{ opportunity.location }}</div>
+    </div>
+  </div>
+
+  <p>{{ opportunity.description }}</p>
+
+  <div class="tags">
+    <span class="tag" *ngFor="let benefit of opportunity.benefits">{{ benefit }}</span>
+  </div>
+
+  <div class="info-column">
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Nationality:</strong> {{ opportunity.required_nationality?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Gender:</strong> {{ opportunity.required_gender?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Race:</strong> {{ opportunity.required_race?.join(', ') || 'Any' }}</p>
+    
+    <p *ngIf="opportunity.min_age !== null || opportunity.max_age !== null">
+      <i class="fa-regular fa-circle-check"></i> <strong>Age Range:</strong> {{ opportunity.min_age ?? 'Any' }} - {{ opportunity.max_age ?? 'Any' }} years
+    </p>
+
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Country:</strong> {{ opportunity.country?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Province:</strong> {{ opportunity.province?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Municipality:</strong> {{ opportunity.municipality?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>District:</strong> {{ opportunity.district?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>City/Town/Township/Village:</strong> {{ opportunity.city_town_township_village?.join(', ') || 'Any' }}</p>
+
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Education Level:</strong> {{ opportunity.education_levels?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Undergraduate Levels:</strong> {{ opportunity.undergraduate_levels?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Postgraduate Levels:</strong> {{ opportunity.postgraduate_levels?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Study Year:</strong> {{ opportunity.study_year?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Tertiary Types:</strong> {{ opportunity.tertiary_types?.join(', ') || 'Any' }}</p>
+
+    <p><i class="fa-regular fa-circle-check"></i> 
+  <strong>Grades:</strong> {{ opportunity.grades?.join(', ') || 'Any' }}
+</p>
+
+
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Academic Institution Type:</strong> {{ opportunity.institution_types?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Academic Institution:</strong> {{ opportunity.institution_names?.join(', ') || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Minimum Average (%):</strong> {{ opportunity.min_average ? opportunity.min_average + '%' : 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Fields of Study:</strong> {{ opportunity.fields_of_study?.join(', ') || 'Any' }}</p>
+    
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Maximum Household Income Per Annum (Rands):</strong> {{ opportunity.income_threshold || 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Disability Status:</strong> {{ opportunity.disability_status ? 'Friendly' : 'Any' }}</p>
+    <p><i class="fa-regular fa-circle-check"></i> <strong>Orphan Status:</strong> {{ opportunity.orphan_status ? 'Only for orphans' : 'Any' }}</p>
+  </div>
+
+  <div class="closing-date"><strong>Closing Date:</strong> {{ opportunity.closing_date | date }}</div>
+  <a [href]="opportunity.application_link" class="apply-btn" target="_blank" rel="noopener noreferrer">
+    Apply
+    <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="4" y1="30" x2="28" y2="4" />
+      <polyline points="14 4, 28 4, 28 18"/>
+    </svg>
+  </a>
+</div>

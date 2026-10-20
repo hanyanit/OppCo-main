@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Smooch&display=swap');
+
+:root {
+  --blue: #010ac4;
+  --light-blue: #d2d4ff;
+  --dark-gray: #343434;
+  --light-gray: #efefef;
+}
+
+* {
+  font-family: 'Poppins ', sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  color: var(--dark-gray);
+}
+
+main {
+  margin-top: 90px;
+}
+
+.heading {
+  font-size: 2em;
+  font-weight: 500;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  #heading {
+    margin-bottom: 5%;
+    line-height: 85%;
+  }
+  
+  main {
+    margin-top: 50px; 
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 830px) {
+  #heading {
+      line-height: 85%;
+  }
+
+  main {
+      margin-top: 100px;
+  }
+}
+
+@media screen and (min-width: 831px) and (max-width: 1400px) {
+  main {
+      margin-top: 140px;
+  }
+}
+
+// Dashboard Header
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.header-left p i {
+  margin-right: 5px;
+}
+
+.header-title {
+  font-size: 2em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.header-icons {
+  cursor: pointer;
+}
+
+.header-icons a i {
+  font-size: 2em;
+  color: rgb(85, 85, 85) !important;
+}
+
+.header-icons a span {
+  font-size: 1.75em;
+  padding-left: 7.5px;
+  font-weight: 500;
+  color: rgb(85, 85, 85);
+}
+
+// Legal Section Styling
+.legal-subheading {
+  font-size: 1.5rem;
+  color: var(--blue);
+  border-bottom: 2px solid var(--light-gray);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Paragraphs */
+.legal-section p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Lists */
+.legal-section ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.legal-section ul li {
+  margin-bottom: 10px;
+  list-style: disc;
+}
+
+/* Emphasis */
+.legal-section strong {
+  color: var(--dark-gray);
+}
+
+/* Links */
+.legal-section a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.legal-section a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive layout */
+@media (max-width: 835px) {
+  .legal-section ul {
+    margin-left: 15px;
+  }
+}
+
+/* Circle cursor base */
+#cursor {
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%) scale(1);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.25); 
+  border: 2px solid var(--blue); 
+  pointer-events: none;
+  transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+  z-index: 9999;
+}
+
+/* Inner dot */
+#cursor span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--blue);
+  display: block;
+  transition: background-color 0.2s ease-out;
+}
+
+@media (max-width: 900px) {
+  #cursor {
+    display: none;
+  }
+}

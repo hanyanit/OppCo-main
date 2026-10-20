@@ -1,0 +1,28 @@
+<div *ngIf="loading" class="loading-container">
+  <div class="spinner"></div>
+  <p>Loading Bookmarked Opportunities...</p>
+</div>
+<div *ngIf="!loading">
+  <header class="header">
+    <div class="header-left">
+      <h1 class="header-title">Bookmarks</h1>
+      <p>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        All opportunities you've saved will appear here.
+      </p>
+    </div>
+  </header>
+
+  <div *ngIf="opportunities.length === 0" class="no-opportunities">
+    <p>Oops, No Bookmarks Yet!</p>
+  </div>
+
+  <div class="cards-container" *ngIf="opportunities.length > 0">
+    <app-card
+      *ngFor="let opportunity of opportunities"
+      [opportunity]="opportunity"
+      [bookmarkedOpportunityIds]="bookmarkedIds"
+      (bookmarkToggle)="onBookmarkToggle($event.opportunityId, $event.isBookmarked)"
+    ></app-card>
+  </div>
+</div>
